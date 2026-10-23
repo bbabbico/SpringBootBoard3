@@ -16,9 +16,6 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
                         .requestMatchers("/**").permitAll()).csrf((csrf) -> csrf.ignoringRequestMatchers("/h2-console/**"))
-                .headers((headers) -> headers
-                        .addHeaderWriter(new XFrameOptionsHeaderWriter(
-                                XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
         ;
         return http.build();
     }
